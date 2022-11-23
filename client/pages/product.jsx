@@ -1,19 +1,13 @@
-import React, { useEffect, useState } from 'react'
-import { getProductData } from '.'
+import React from 'react'
+import Header from '../components/Header'
 import LoadingIcon from '../components/LoadingIcon'
 import QuantitySelector from '../components/QuantitySelector'
+import { useCart } from '../context'
 
 const Product = () => {
-  const [productData, setProductData] = useState({})
-
-  useEffect(() => {
-    (async function() {
-      const data = await getProductData()
-      console.log(data)
-      setProductData(data.allProducts[0]?.fields)
-    })()
-  }, [])
-
+  const {
+    productData
+  } = useCart()
   const {
     img_url,
     name,
@@ -24,16 +18,7 @@ const Product = () => {
   return (
     productData?.id ? (
       <div className='product'>
-        <header className='header flex space-between'>
-          <div 
-            className='header__logo'
-            alt='Octopus Energy Logo'>
-          </div>
-          <div 
-            className='header__basket' 
-            alt='Add to basket'>
-          </div>
-        </header>
+        <Header />
         <main className='main'>
           <div className='main__image-container'>
             <img src={img_url} alt={`${name} product image`} />
@@ -45,10 +30,9 @@ const Product = () => {
           </div>
           <div className='flex space-between'>
             <p className='main__price'>{price}</p>
-            <QuantitySelector />
+            <QuantitySelector/>
           </div>
         </main>
-        
       </div>
     ) : <LoadingIcon/>
   )
