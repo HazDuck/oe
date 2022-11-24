@@ -20,7 +20,7 @@ export const ProductProvider = ({ children }) => {
 
   const [cart, setCart] = useState(intialCart)
   const [productData, setProductData] = useState({})
-  const [productCount, setProductCount] = useState(0)
+  const [productCount, setProductCount] = useState(1)
 
   return (
     <ProductContext.Provider value={{

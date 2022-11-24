@@ -12,12 +12,6 @@ const Product = () => {
     setProductCount,
     productCount
   } = useProduct()
-  const {
-    img_url,
-    name,
-    power,
-    price,
-  } = productData
 
   const handleClick = () => {
     setCart((prevState) => ({
@@ -28,7 +22,7 @@ const Product = () => {
       ],
       total_price: prevState.total_price + (productData.price * productCount)
     }))
-    setProductCount(0)
+    setProductCount(1)
   }
 
   useEffect(() => {
@@ -41,16 +35,16 @@ const Product = () => {
         <Header />
         <main>
           <div className='image-container'>
-            <img src={img_url} alt={`${name} product image`} />
+            <img src={productData.img_url} alt={`${productData.name} product image`} />
           </div>
           <div className='container'>
             <div className='details'>
-              <h1 className='details__title'>{name}</h1>
+              <h1 className='details__title'>{productData.name}</h1>
               {/* Packet of 4 should probably be returned with the product data */}
-              <p>{power} // Packet of 4</p>
+              <p>{productData.power} // Packet of 4</p>
             </div>
             <div className='form'>
-              {price ? <p className='form__price'>{`£${price / 100}`}</p> : null}
+              {productData.price ? <p className='form__price'>{`£${productData.price / 100}`}</p> : null}
               <QuantitySelector/>
             </div>
             <button className='form__atc' onClick={handleClick} disabled={productCount ? false : true}>

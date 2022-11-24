@@ -1,8 +1,10 @@
 import { render, fireEvent } from "@testing-library/react";
+import QuantitySelector from "../components/QuantitySelector";
 import Product from "../pages/product";
 
 test("should be able to increase and decrease product quantity", async () => {
-  const { getByText, getByTitle } = render(<Product />);
+  // const { getByText, getByTitle } = render(<Product />);
+  const { getByText, getByTitle } = render(<QuantitySelector />);
 
   const increaseQuantity = getByText("+");
 
@@ -19,7 +21,8 @@ test("should be able to increase and decrease product quantity", async () => {
 });
 
 test("should be able to add items to the basket", async () => {
-  const { getByText, getByTitle } = render(<Product />);
+  // const { getByText, getByTitle } = render(<Product />);
+  const { getByText, getByTitle } = render(<QuantitySelector />);
 
   const increaseQuantity = getByText("+");
 
