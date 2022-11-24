@@ -1,8 +1,8 @@
 import React, { createContext, useContext, useState, useEffect } from 'react'
 import { getProductData } from './pages'
 
-export const CartContext = createContext({})
-export const CartProvider = ({ children }) => {
+export const ProductContext = createContext({})
+export const ProductProvider = ({ children }) => {
 
   useEffect(() => {
     (async function() {
@@ -12,19 +12,28 @@ export const CartProvider = ({ children }) => {
     })()
   }, [])
 
-  const [cart, setCart] = useState({})
+  const intialCart = {
+    item_count: 0,
+    items: [],
+    total_price: 0
+  }
+
+  const [cart, setCart] = useState(intialCart)
   const [productData, setProductData] = useState({})
+  const [productCount, setProductCount] = useState(0)
 
   return (
-    <CartContext.Provider value={{
+    <ProductContext.Provider value={{
       cart,
       setCart,
       productData, 
-      setProductData
+      setProductData,
+      productCount, 
+      setProductCount
     }}>
       {children}
-    </CartContext.Provider>
+    </ProductContext.Provider>
   )
 }
 
-export const useCart = () => useContext(CartContext)
+export const useProduct = () => useContext(ProductContext)

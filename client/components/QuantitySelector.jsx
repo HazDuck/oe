@@ -1,14 +1,29 @@
 import React from 'react'
-import { useCart } from '../context'
+import { useProduct } from '../context'
 
 const QuantitySelector = () => {
-  const { cart } = useCart()
-  
+  const { 
+    productCount, 
+    setProductCount, 
+    productData, 
+    cart 
+  } = useProduct()
+
   return (
     <div className='main__quantity'>
       <span>Qty</span>
       <div className='flex'>
-        <button></button>
+        <button 
+          disabled={productCount === 0 ? true : false} 
+          onClick={() => setProductCount(productCount - 1 )} 
+          aria-label='Decrement item count'>-</button>
+        <span>{productCount}</span>
+        <button 
+          disabled={
+            productCount === productData.quantity || 
+            (cart.item_count + productCount) >= productData.quantity ? true : false} 
+          onClick={() => setProductCount(productCount + 1 )} 
+          aria-label='Increase item count'>+</button>
       </div>
     </div>
   ) 

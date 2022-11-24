@@ -1,19 +1,39 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import Header from '../components/Header'
 import LoadingIcon from '../components/LoadingIcon'
 import QuantitySelector from '../components/QuantitySelector'
-import { useCart } from '../context'
+import { useProduct } from '../context'
 
 const Product = () => {
   const {
-    productData
-  } = useCart()
+    productData,
+    cart,
+    setCart,
+    setProductCount,
+    productCount
+  } = useProduct()
   const {
     img_url,
     name,
     power,
-    price
+    price,
   } = productData
+
+  const handleClick = () => {
+    setCart((prevState) => ({
+      ...prevState,
+      item_count: prevState.item_count + productCount,
+      items: [
+        ...prevState.items, {id: 1, quantity: productCount, price: productData.price}
+      ],
+      total_price: prevState.total_price + (productData.price * productCount)
+    }))
+    setProductCount(0)
+  }
+
+  useEffect(() => {
+    console.log(cart)
+  }, [cart])
   
   return (
     productData?.id ? (
@@ -29,9 +49,12 @@ const Product = () => {
             <p>{power} // Packet of 4</p>
           </div>
           <div className='flex space-between'>
-            <p className='main__price'>{price}</p>
+            {price ? <p className='main__price'>{`£${price / 100}`}</p> : null}
             <QuantitySelector/>
           </div>
+          <button onClick={handleClick} disabled={productCount ? false : true}>
+            Add to cart
+          </button>
         </main>
       </div>
     ) : <LoadingIcon/>

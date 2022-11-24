@@ -1,11 +1,11 @@
-import { CartProvider } from '../context';
+import { ProductProvider } from '../context';
 import '../styles/styles.scss';
 
 function MyApp({ Component, pageProps }) {
   return (
-    <CartProvider>
+    <ProductProvider>
       <Component {...pageProps} />
-    </CartProvider>
+    </ProductProvider>
   )
 }
 
