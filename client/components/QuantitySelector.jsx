@@ -10,14 +10,14 @@ const QuantitySelector = () => {
   } = useProduct()
 
   return (
-    <div className='main__quantity'>
-      <span>Qty</span>
-      <div className='flex'>
+    <div className='form__quantity'>
+      <p>Qty</p>
+      <div>
         <button 
           disabled={productCount === 0 ? true : false} 
           onClick={() => setProductCount(productCount - 1 )} 
           aria-label='Decrement item count'>-</button>
-        <span>{productCount}</span>
+        <span className='form__quantity-value'>{productCount}</span>
         <button 
           disabled={
             productCount === productData.quantity || 

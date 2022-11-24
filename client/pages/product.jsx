@@ -39,22 +39,24 @@ const Product = () => {
     productData?.id ? (
       <div className='product'>
         <Header />
-        <main className='main'>
-          <div className='main__image-container'>
+        <main>
+          <div className='image-container'>
             <img src={img_url} alt={`${name} product image`} />
           </div>
-          <div className='main__details'>
-            <h1 className='main__details-title'>{name}</h1>
-            {/* Packet of 4 should probably be returned with the product data */}
-            <p>{power} // Packet of 4</p>
+          <div className='container'>
+            <div className='details'>
+              <h1 className='details__title'>{name}</h1>
+              {/* Packet of 4 should probably be returned with the product data */}
+              <p>{power} // Packet of 4</p>
+            </div>
+            <div className='form'>
+              {price ? <p className='form__price'>{`£${price / 100}`}</p> : null}
+              <QuantitySelector/>
+            </div>
+            <button className='form__atc' onClick={handleClick} disabled={productCount ? false : true}>
+              Add to cart
+            </button>
           </div>
-          <div className='flex space-between'>
-            {price ? <p className='main__price'>{`£${price / 100}`}</p> : null}
-            <QuantitySelector/>
-          </div>
-          <button onClick={handleClick} disabled={productCount ? false : true}>
-            Add to cart
-          </button>
         </main>
       </div>
     ) : <LoadingIcon/>
