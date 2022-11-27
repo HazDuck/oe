@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from 'react'
-import { getProductData } from './pages'
+import getProductData from './getProductData'
 
 export const ProductContext = createContext({})
 export const ProductProvider = ({ children }) => {

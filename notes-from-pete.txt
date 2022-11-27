@@ -1,0 +1,6 @@
+- Reason through a programming problem
+- Implement a visual design
+- Implement some user interactions
+- Write code that is easy to understand and extend
+- Write tests that document and safeguard the program's behaviour
+- Use a version control system (e.g. git) to effectively convey intent

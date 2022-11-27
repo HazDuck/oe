@@ -1,6 +1,3 @@
-import { gql } from "@apollo/client";
-import client from "../client";
-
 export default function Home() {
   return (
     <main>
@@ -19,17 +16,4 @@ export default function Home() {
       </div>
     </main>
   );
-}
-
-export const getProductData = async () => {  
-  const { data } = await client.query({
-    query: gql`
-      query allProducts {
-          allProducts {
-            fields 
-          }
-      }
-    `,
-  });
-  return data;
 }

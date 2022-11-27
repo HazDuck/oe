@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React  from 'react'
 import Header from '../components/Header'
 import LoadingIcon from '../components/LoadingIcon'
 import QuantitySelector from '../components/QuantitySelector'
@@ -13,6 +13,7 @@ const Product = () => {
     productCount
   } = useProduct()
 
+  //handle atc clicks
   const handleClick = () => {
     setCart((prevState) => ({
       ...prevState,
@@ -24,10 +25,6 @@ const Product = () => {
     }))
     setProductCount(1)
   }
-
-  useEffect(() => {
-    console.log(cart)
-  }, [cart])
   
   return (
     productData?.id ? (
@@ -40,7 +37,7 @@ const Product = () => {
           <div className='container'>
             <div className='details'>
               <h1 className='details__title'>{productData.name}</h1>
-              {/* Packet of 4 should probably be returned with the product data */}
+              {/* Packet of 4 should probably be returned within the product data */}
               <p className='details__info'>{productData.power} // Packet of 4</p>
             </div>
             <div className='form'>
