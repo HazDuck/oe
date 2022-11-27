@@ -64,6 +64,22 @@ button {
       background-repeat: no-repeat;
       width: 28px;
       height: 28px;
+      position: relative;
+
+      &-badge {
+        position: absolute;
+        top: -9px;
+        right: -10px;
+        width: 18px;
+        height: 18px;
+        background: var(--sohoLights);
+        border-radius: 50%;
+        color: #fff;
+        line-height: 18px;
+        text-align: center;
+        font-size: 12px;
+        font-weight: 600;
+      }
     }
   }
 
@@ -93,6 +109,10 @@ button {
         &__title {
           font-weight: 400;
           line-height: 160%;
+        }
+
+        &__info {
+          opacity: 0.7;
         }
       }
   

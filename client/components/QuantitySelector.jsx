@@ -14,7 +14,7 @@ const QuantitySelector = () => {
       <p>Qty</p>
       <div>
         <button 
-          disabled={productCount === 0 ? true : false} 
+          disabled={productCount === 1 || productCount === 0 ? true : false} 
           onClick={() => setProductCount(productCount - 1 )} 
           aria-label='Decrement item count'>-</button>
         <span title='Current quantity' className='form__quantity-value'>{productCount}</span>

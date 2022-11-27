@@ -1,3 +1,5 @@
+import CartBadge from "./CartBadge"
+
 const Header = () => (
     <header className='header flex space-between'>
     <div 
@@ -7,6 +9,7 @@ const Header = () => (
     <div 
       className='header__basket' 
       alt='Add to basket'>
+        <CartBadge/>
     </div>
   </header>
 )

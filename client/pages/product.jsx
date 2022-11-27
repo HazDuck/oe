@@ -41,13 +41,13 @@ const Product = () => {
             <div className='details'>
               <h1 className='details__title'>{productData.name}</h1>
               {/* Packet of 4 should probably be returned with the product data */}
-              <p>{productData.power} // Packet of 4</p>
+              <p className='details__info'>{productData.power} // Packet of 4</p>
             </div>
             <div className='form'>
               {productData.price ? <p className='form__price'>{`£${productData.price / 100}`}</p> : null}
-              <QuantitySelector/>
+              <QuantitySelector />
             </div>
-            <button className='form__atc' onClick={handleClick} disabled={productCount ? false : true}>
+            <button className='form__atc' onClick={handleClick} disabled={cart.item_count >= productData.quantity ? true : false}>
               Add to cart
             </button>
           </div>

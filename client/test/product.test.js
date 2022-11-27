@@ -1,18 +1,28 @@
 import { render, fireEvent } from "@testing-library/react";
 import QuantitySelector from "../components/QuantitySelector";
-import Product from "../pages/product";
 
 test("should be able to increase and decrease product quantity", async () => {
+  // jest.mock('../context', () => ({
+  //   useProduct: () => ({
+  //     productData: {},
+  //     cart: {},
+  //     productCount,
+  //     setProductCount
+  //   })
+  // }));
+
   // const { getByText, getByTitle } = render(<Product />);
   const { getByText, getByTitle } = render(<QuantitySelector />);
 
   const increaseQuantity = getByText("+");
 
   const currentQuantity = getByTitle("Current quantity");
-  expect(currentQuantity).toHaveTextContent("1");
 
+  expect(currentQuantity).toHaveTextContent("1");
   fireEvent.click(increaseQuantity);
-  expect(currentQuantity).toHaveTextContent("2");
+
+  const newQuantity = getByTitle("Current quantity");
+  expect(newQuantity).toHaveTextContent("2");
 
   const decreaseQuantity = getByText("-");
 
