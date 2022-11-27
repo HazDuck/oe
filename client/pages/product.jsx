@@ -1,4 +1,5 @@
 import React  from 'react'
+import Description from '../components/Description'
 import Header from '../components/Header'
 import LoadingIcon from '../components/LoadingIcon'
 import QuantitySelector from '../components/QuantitySelector'
@@ -49,6 +50,7 @@ const Product = () => {
             </button>
           </div>
         </main>
+        <Description />
       </div>
     ) : <LoadingIcon/>
   )
