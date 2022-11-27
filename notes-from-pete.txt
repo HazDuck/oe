@@ -1,6 +1,52 @@
+
+Hi! I spent approx 4 and a bit hours on this. Looking forward to chatting about it. 😄
+
+--------------------------------------------
+
 - Reason through a programming problem
+
+I'm happy with what I have built however am a little disappointed that I couldn't get the tests to pass.
+Upon reflection I'd take a much more TDD approach, rather than building first and testing second.
+
+
 - Implement a visual design
+
+I think what I have built sufficiently matches the designs based upon the time restrictions. I've added a cart badge for customers to 
+track their cart. Unfortunantely I didnt get to add the product info table at the bottom of the page due to time limitations.
+
+
 - Implement some user interactions
+
+Customers can add to cart etc 
+
+
 - Write code that is easy to understand and extend
+
+I wanted to make the code extendable - therefore I set up a Provider and used the Context API to manage state so that 
+more complicated elements could be added without much re-writing. I've tried to break down the code into digestable chunks so it is easy to understand
+
+
 - Write tests that document and safeguard the program's behaviour
+
+I have a bit of a knowledge gap around implementing proper testing. Unfortunantely I wasn't able to get the tests to pass. 
+
+My understanding is that because I am handling state via context api I my tests will fail (currently the test is failing on the .toHaveTextConent 
+on anything that gets passed through state e.g. productCount. 
+After some googling I believe I would need to mock both the data call and also using context. 
+
+
+Attempted to work out how to mock this but ran out of time 👇
+
+  jest.mock('../context', () => ({
+    useProduct: () => ({
+      productData: {},
+      cart: {},
+      productCount,
+    setProductCount
+  })
+}));
+
+
 - Use a version control system (e.g. git) to effectively convey intent
+
+Added to a git repo with (hopefully 😄) clear commit messages => https://github.com/HazDuck/oe
