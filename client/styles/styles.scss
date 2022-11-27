@@ -42,9 +42,9 @@ button {
 }
 
 .product {
-  padding: 16px;
 
   .header {
+    padding: 16px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -84,6 +84,7 @@ button {
   }
 
   main {
+    padding: 16px;
     display: flex;
     flex-direction: column;
 
@@ -147,6 +148,26 @@ button {
             margin: 0 6px;
           }
         }
+      }
+    }
+  }
+
+  .description {
+    padding: 16px;
+    background-color: #180048;
+    margin-top: 24px;
+
+    &__content {
+      max-width: 900px;
+      margin: 0 auto;
+
+      &-title {
+        font-size: 22px;
+      }
+
+      &-text {
+        line-height: 1.6;
+        font-weight: 300;
       }
     }
   }
